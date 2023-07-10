@@ -1,6 +1,7 @@
-import type { Metadata } from 'next';
-import { Quicksand } from 'next/font/google';
-import './globals.css';
+import { ClerkProvider } from "@clerk/nextjs";
+import type { Metadata } from "next";
+import { Quicksand } from "next/font/google";
+import "./globals.css";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -9,18 +10,20 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: 'Anonymous',
-  description: 'Say anything you want guilt free.',
-}
+  title: "Anonymous",
+  description: "Say anything you want guilt free.",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="!scroll-smooth">
-      <body className={quicksand.className}>{children}</body>
-    </html>
-  )
+    <ClerkProvider>
+      <html lang="en" className="!scroll-smooth">
+        <body className={quicksand.className}>{children}</body>
+      </html>
+    </ClerkProvider>
+  );
 }
