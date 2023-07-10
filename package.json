@@ -1,11 +1,13 @@
 {
   "name": "anon",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo --show-all",
     "build": "next build",
-    "start": "next start",
+    "preview": "next start",
+    "start": "rm -rf .next && next build && next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -20,6 +22,14 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.2",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "tailwind-merge": "^1.13.0",
+    "sharp": "^0.32.1",
+    "react-icons": "^4.9.0",
+    "next-themes": "^0.2.1"
+  },  
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0"
   }
 }
