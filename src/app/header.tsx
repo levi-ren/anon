@@ -7,7 +7,7 @@ interface HeaderProps {}
 
 export default function Header(props: HeaderProps) {
   return (
-    <header className="bg- sticky top-0 shadow-lg">
+    <header className="sticky top-0 shadow-lg backdrop-blur-md">
       <Container className="flex justify-between px-2 py-4">
         <Link href="/" className="flex items-center gap-2">
           <Logo className="h-8 w-8 " />
