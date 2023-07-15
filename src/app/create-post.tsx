@@ -8,12 +8,12 @@ export default async function CreatePost(props: CreatePostProps) {
   const user = await currentUser();
 
   return (
-    <div className="m-auto mt-4 flex max-w-lg gap-x-2 p-2">
+    <div className="flex gap-x-2 p-2">
       {user && (
         <>
           <Image
             src={user.imageUrl}
-            className="shrink-0 self-center rounded-full shadow-md"
+            className="shrink-0 self-center rounded-full bg-isabelle shadow-md"
             alt="Your profile image"
             width={32}
             height={32}

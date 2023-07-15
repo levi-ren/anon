@@ -22,7 +22,7 @@ const Form = ({ children, closeDialog }: FormProps) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(content),
+      body: JSON.stringify(content?.toString().trim()),
     })
       .then((e) => {
         if (!e.ok) {

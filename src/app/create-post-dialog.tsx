@@ -36,7 +36,7 @@ const CreatePostDialog = ({ username }: CreatePostDialogProps) => {
     <>
       {username && (
         <button
-          className="w-full rounded-full border px-4 py-2 text-left  text-slate-400 shadow-md"
+          className="w-full rounded-full border px-4 py-2 text-left  text-zinc-400 shadow-md dark:border-zinc-700"
           onClick={() => {
             dialog.current &&
               !dialog.current.open &&
@@ -54,7 +54,7 @@ const CreatePostDialog = ({ username }: CreatePostDialogProps) => {
         onClick={closeDialog}
       >
         <div
-          className="m-2 animate-show space-y-2 rounded-lg border border-slate-50/20 bg-white p-4 shadow-lg backdrop-blur-3xl dark:bg-black/90"
+          className="m-2 animate-show space-y-2 rounded-lg border border-zinc-50/20 bg-white p-4 shadow-lg backdrop-blur-3xl dark:bg-black"
           onClick={(e) => {
             e.stopPropagation();
           }}
@@ -73,11 +73,11 @@ const CreatePostDialog = ({ username }: CreatePostDialogProps) => {
                 id="content"
                 name="content"
                 required
-                className="min-h-[150px] w-full resize-none outline-none"
+                className="min-h-[150px] w-full resize-none bg-transparent outline-none"
                 placeholder={`Say something nice ${username}`}
               />
             </label>
-            <div className="flex justify-end gap-x-2 rounded-md border p-4">
+            <div className="flex justify-end gap-x-2 rounded-md border p-4 dark:border-zinc-700">
               <IoImages className="h-6 w-6 text-green-500" />
               <IoLocation className="h-6 w-6 text-rose-500" />
               <IoPerson className="h-6 w-6 text-sky-500" />

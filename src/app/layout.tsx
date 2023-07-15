@@ -1,6 +1,7 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
+import Body from "./body";
 import "./globals.css";
 
 const quicksand = Quicksand({
@@ -22,7 +23,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className="!scroll-smooth">
-        <body className={quicksand.className}>{children}</body>
+        <Body className={quicksand.className}>{children}</Body>
       </html>
     </ClerkProvider>
   );
