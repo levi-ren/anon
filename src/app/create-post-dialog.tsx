@@ -1,13 +1,9 @@
 "use client";
 
+import Button from "@/components/button";
 import Divider from "@/components/divider";
 import { useRef } from "react";
-import {
-  IoCloseOutline,
-  IoImages,
-  IoLocation,
-  IoPerson,
-} from "react-icons/io5";
+import { IoCloseOutline } from "react-icons/io5";
 import Form from "./form";
 
 interface CreatePostDialogProps {
@@ -61,9 +57,14 @@ const CreatePostDialog = ({ username }: CreatePostDialogProps) => {
         >
           <div className="flex items-center justify-between pb-1 pt-6">
             <span className="text-lg font-bold">Create Post</span>
-            <button className="block" autoFocus={false} onClick={closeDialog}>
+            <Button
+              aria-label="Close dialog button"
+              className="block"
+              autoFocus={false}
+              onClick={closeDialog}
+            >
               <IoCloseOutline className="h-6 w-6" />
-            </button>
+            </Button>
           </div>
           <Divider />
           <Form closeDialog={closeDialog}>
@@ -77,11 +78,6 @@ const CreatePostDialog = ({ username }: CreatePostDialogProps) => {
                 placeholder={`Say something nice ${username}`}
               />
             </label>
-            <div className="flex justify-end gap-x-2 rounded-md border p-4 dark:border-zinc-700">
-              <IoImages className="h-6 w-6 text-green-500" />
-              <IoLocation className="h-6 w-6 text-rose-500" />
-              <IoPerson className="h-6 w-6 text-sky-500" />
-            </div>
           </Form>
         </div>
       </dialog>

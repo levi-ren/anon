@@ -22,8 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className="!scroll-smooth">
-        <Body className={quicksand.className}>{children}</Body>
+      <html lang="en" className="!scroll-smooth ">
+        <Body className={`bg-isabelle dark:bg-black ${quicksand.className}`}>
+          {children}
+        </Body>
       </html>
     </ClerkProvider>
   );

@@ -8,9 +8,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   ["aria-label"]: string;
 }
 
-const Button = ({ children, loading, ...rest }: ButtonProps) => {
+const Button = ({
+  children,
+  loading,
+  type = "button",
+  ...rest
+}: ButtonProps) => {
   return (
-    <button {...rest}>
+    <button type={type} {...rest}>
       {loading && <ImSpinner2 className="h-5 w-5 animate-spin text-white" />}
       {children}
     </button>

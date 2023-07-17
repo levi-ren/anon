@@ -60,11 +60,21 @@ export default async function Posts({ children }: PropsWithChildren) {
               <IoEllipsisVerticalOutline className="ml-auto h-5 w-5 text-zinc-400" />
             </div>
 
-            <div className="flex gap-x-2 px-[22px] text-justify first-letter:text-xl">
+            <div className="relative flex gap-x-2 px-[22px] text-justify first-letter:text-xl">
               <div className="h-auto w-[4px] rounded-full border border-zinc-300 bg-isabelle dark:border-zinc-700 dark:bg-black " />
-              <p className="flex-1 whitespace-pre-line pl-4 pr-2">
+              {post.content.length > 400 && (
+                <input type="checkbox" id={post.id} className="peer" hidden />
+              )}
+              <div className="max-h-[230px] flex-1 overflow-hidden whitespace-pre-line pl-4 pr-2 peer-checked:max-h-max ">
                 {post.content}
-              </p>
+              </div>
+              {post.content.length > 400 && (
+                <div className="via-isabfrom-isabelle absolute bottom-0 left-12 right-6 bg-gradient-to-t from-isabelle via-40% px-2 py-4 text-center text-xs font-bold text-black backdrop-blur-sm peer-checked:hidden dark:from-black dark:via-black dark:text-isabelle">
+                  <label htmlFor={post.id} className="cursor-pointer ">
+                    VIEW MORE
+                  </label>
+                </div>
+              )}
             </div>
 
             <div className="flex items-center gap-x-2 px-3 text-zinc-400 dark:text-zinc-500">

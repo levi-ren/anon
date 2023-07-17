@@ -16,14 +16,18 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({}, { status: 402 });
   }
 
-  await dbConnect();
+  try {
+    await dbConnect();
 
-  const post = new PostModel({
-    content,
-    username: user.username,
-    image: user.imageUrl,
-  });
-  const newPost = await post.save();
+    const post = new PostModel({
+      content,
+      username: user.username,
+      image: user.imageUrl,
+    });
+    const newPost = await post.save();
 
-  return NextResponse.json(newPost);
+    return NextResponse.json(newPost);
+  } catch (error) {
+    return NextResponse.json({ error }, { status: 500 });
+  }
 }
